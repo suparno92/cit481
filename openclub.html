@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html>
+
+   <head>
+     <!--Import Google Icon Font-->
+           <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+           <!--Import materialize.css-->
+           <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+           <link type="text/css" rel="stylesheet" href="css/form.css"  media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="css/load.css"  media="screen,projection"/>
+
+
+
+           <!--Let browser know website is optimized for mobile-->
+           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+           <style type="text/css">
+
+        .footer{
+
+         }
+
+         #month{padding: 10px;}
+
+
+         html { height: 1100px; width: 100%;  background-color: #f9f9f9;}
+
+         @media screen and (min-width: 600px) {
+            body {
+                 height: 1500px; width: 100%; background-color: #f9f9f9;   margin: auto;
+            }
+          }
+
+         @media screen and (min-width: 1500px) {
+            body {
+                 height: 1500px; width: 80%; background-color: #f9f9f9;   margin: auto;
+              }
+            }
+            #navo {height: 60px;}
+
+   /* these ids are inside the body container which is 1000 x 1300  */
+           #map-container{ height: 1400px ; width: 100%;  margin: 0 auto; display: block;  background-color: white; margin-top: 1px; z-index: 0;border:none;   }
+
+
+              #map-canvas {  height: 35% ; width:70%; z-index: 0; margin: auto;  border:none;
+                            display: block; background-color: white;
+
+                          }
+
+                    #map-canvas-left { float: left; height: 100% ; width:50%; z-index: 0;  border: none; margin-top: 1%; margin-left: 2%;
+                       background-image: url('img/art2.svg');
+                       background-size: contain;
+                       display: block;
+                       background-repeat:   no-repeat;
+                       background-position: center center;
+                     }
+                     #map-canvas-right { float: left; height: 100% ; width:40%; z-index: 0;  border: none; margin-top: 5%; margin-left: 2%;display: block;
+                      }
+
+              #nav{ width: 100%; height: 65%; padding: 1%;  background-color: white;  display: block; border-left: none; }
+           #bottom{ height: 400px ; width:100%; background-color: white;  margin:auto; z-index: 0;  }
+
+      /* top bar fixed */
+           #map-top {  height: 120px; width: 100%; position: relative; top: 0px; left: 0px; background-color: white; z-index: 1;}
+            #map-top2 {  height: 60px; width: 100%; position: relative; float: left; top: 0px; left: 0px; background-color: white; z-index: 1;  box-shadow: 0 8px 6px -6px #999;}
+           #map-top-inside { height: 100%; width: 30%; background-image: url(""); background-repeat:no-repeat; float:left; z-index: 1;}
+           #map-top-inside-middle { height: 100%; width: 40%; background-image: url("toplogo.jpg"); background-repeat:no-repeat; float:left; z-index: 1;}
+           #map-top-inside-right { height: 100%; width: 20%;float:right; z-index: 1;}
+
+
+         div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
+
+
+         table {
+           font-family: arial, sans-serif;
+           border-collapse: collapse;
+           width: 100%;
+         }
+         td {
+           border: none;
+           text-align: left;
+           padding: 10px;
+           height: 30px;
+         }
+
+
+         .info{ height: 300px; width: 500px; padding: 0px; margin: 0px;}
+         #infotop{width: 100%; height: 40px; background-color: blue;}
+
+
+        ::-webkit-scrollbar {
+            width: 15px;  /* remove scrollbar space */
+            background: transparent;  /* optional: just make scrollbar invisible */
+
+        }
+        /* optional: show position indicator in red */
+        ::-webkit-scrollbar-thumb {
+            background: white;
+            border: 1px solid #f4f4f4;
+
+
+        }
+
+         #tabletop{background-color: #79dd75; font-weight: bold; font-size: 16px;}
+
+
+         .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+         tr:hover{ cursor: pointer; background-color:#79dd75; }
+
+      </style>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_qy9QdBjjV1w8c4hQ5o52DmAWMact_xg&callback=initMap"
+      async defer></script>
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
+
+
+
+    </script>
+    <script type="text/javascript" src="js/materialize.min.js">
+
+    </script>
+
+
+    <div id="map-top" >
+      <div id="map-top-inside">
+      </div>
+      <div id="map-top-inside-middle">
+      </div>
+      <div id="map-top-inside-right">
+
+      </div>
+
+    </div>
+
+
+        <nav id="navo"  >
+
+          <a href="#!" class="brand-logo center">Logo</a>
+          <ul class="left hide-on-med-and-down ">
+            <li class="active"><a href="openclub.html" class="secondary-content2 "> &nbsp&nbsp&nbspOpen a Club</a><i class="material-icons dark-grey-text">supervisor_account</i></li>
+            <li><a href="#!" class="secondary-content2 " >&nbsp&nbsp&nbspProfile</a><i class="material-icons dark-grey-text">perm_identity</i></li>
+            <li ><a href="index.php" class="secondary-content2"> &nbsp&nbsp&nbspMap View</a><i class="material-icons dark-grey-text">my_location</i></li>
+            <li><a href="index.html" class="secondary-content2 " >&nbsp&nbsp&nbspSearch</a><i class="material-icons dark-grey-text">search</i></li>
+          </ul>
+
+
+        </nav>
+
+
+
+
+    <div id="map-container" >
+
+
+
+         <div id="map-canvas" >
+           <div id="map-canvas-left" >
+
+           </div>
+           <div id="map-canvas-right" >
+             <h4><strong>Send videos quickly</strong></h4>
+            <p>Send your entire wedding video to family with a simple link. It's easy to share large files with anyone - even if they don't have a Dropbox account.</p><br>
+            <div id="learn" class="row valign-wrapper black-text"><i class="material-icons">info_outline</i> &nbsp &nbspLearn More</div>
+           </div>
+         </div>
+
+        <div id="nav">
+          <div class="row">
+                <form class="col s12">
+                  <h6> New Club: Request Form </h6> <br>
+                <div class="row">
+                <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input placeholder="Username" value="Mahesh" id="name" type="text" class="active validate" required>
+                <label for="name">Username</label>
+                </div>
+                <div class="input-field col s6">
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="Password" class="validate" required>
+                </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+                <input placeholder="Email" id="email" type="email" class="validate">
+                <label for="email">CSUN email</label>
+                </div>
+                </div>
+                <div class="row">
+                    <p> Intended place to held club meeting? </br> *exlain in details about location, total student intended, etc</p>
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">explain</label>
+                  </div>
+                </div>
+                <div class="row">
+                    <p>What is your club about? </br> *tell us what you want to achieve from this club</p>
+                  <div class="input-field col s12">
+
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+                    <label for="textarea1">explain</label>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+
+                <p>
+                <input id="single" type="checkbox" class="filled-in" >
+                <label for="single">Political</label>
+                </p>
+                <p>
+                <input id="single2" type="checkbox" class="filled-in" >
+                <label for="single2">Arts and Media</label>
+                </p>
+                <p>
+                <input id="single3" type="checkbox" class="filled-in" >
+                <label for="single3">Cultural</label>
+                </p>
+
+                </div>
+                </div>
+
+
+                </form>
+                </div>
+
+
+
+
+
+
+
+                 </div>
+
+
+
+
+
+
+
+
+      <script type="text/javascript">
+
+
+
+
+
+          var temp = document.getElementsByTagName("td");
+
+
+          for(var i=0; i < temp.length; i++){
+
+            temp[i].addEventListener("click", function(){ club_infowindow(this,temp[i]); },false);
+
+          }
+
+
+        document.getElementById("learn").addEventListener("click", function(){
+            var tp = document.getElementById('nav');
+
+
+            tp.innerHTML ='<h4> HOUHOHOUHOUH </h4>';
+          });
+
+
+
+      </script>
+
+
+     </div>
+
+
+    <div >
+      <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+    </div>
+
+   </body>
+
+   </html>

@@ -1,0 +1,45 @@
+ echo  '
+
+             <div class="card-panel grey lighten-5 z-depth-1">
+             <div class="valign">
+                <div class="col s10">
+                  <span class="black-text small">
+                    <strong> MISA </strong><br><br> We are a student organization dedicated to empowering ambitious students as they transition from the classroom to industry professionals. We host weekly meetings and networking events with professionals that enhance student education in the form of professional development, internships, and career opportunities.  <br><br>
+                  </span>
+                </div>
+              </div>
+            </div>
+              <table class="striped">
+              <thead>
+              <tr>
+                  <th data-field="id">Name</th>
+                  <th data-field="name">Item Name</th>
+                  <th data-field="name">Item Price</th>
+                  <th data-field="name">Item Price</th>
+              </tr>
+            </thead>
+
+            <tbody>';
+             while ($row = $dataquery->fetch(PDO::FETCH_ASSOC) )
+               {
+
+               echo "<tr>";
+               echo "<td><strong>";
+               echo $row['date'];
+               echo "</strong></td>";
+                 echo "<td><strong>";
+               echo $row['time'];
+               echo "</strong></td>";
+               echo "<td><strong>";
+               echo $row['description'];
+               echo "</strong></td>";
+               echo "<td>";
+              // echo '<div class="w3-container" id="'; echo $row['meeting_id']; echo '"><p><button onclick="reply_click(this)" class="w3-btn">ADD</button></p></div>';
+               echo '<a class="btn" onclick="reply_click(this)" id="'.  $row['meeting_id'].'" >add</a>';
+               echo "</td>";
+               echo "</tr>";
+
+
+              }
+              echo  '</tbody>
+              </table>';
