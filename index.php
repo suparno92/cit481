@@ -21,17 +21,17 @@
          #month{padding: 10px;}
 
 
-         html { height: 1300px; width: 100%;  background-color: #f9f9f9;}
+         html { height: 1300px; width: 100%;  background-color: white;}
 
          @media screen and (min-width: 600px) {
             body {
-                 height: 1300px; width: 1200px; background-color: #f9f9f9;   margin: auto;
+                 height: 1300px; width: 1200px; background-color: white;   margin: auto;
             }
           }
 
          @media screen and (min-width: 1500px) {
             body {
-                 height: 1300px; width: 80%; background-color: #f9f9f9;   margin: auto;
+                 height: 1300px; width: 80%; background-color: white;   margin: auto;
               }
             }
 

@@ -9,7 +9,7 @@ if(isset($_POST['club_id'])){
   $clicked_club = preg_replace("/[^0-9]/", "", $_POST['club_id']);
 
       echo '<div class="info"><div id="infotop"></div><div>';
-      $dataquery = $conn->prepare("SELECT date,time,description,meeting_id FROM club_meetings WHERE club_id = :value1");
+      $dataquery = $conn->prepare("SELECT date,time,description,meeting_id FROM meeting_detail WHERE club_id = :value1");
       $dataquery->bindParam(':value1', $clicked_club, PDO::PARAM_INT);
       $dataquery->setFetchMode(PDO::FETCH_ASSOC);
 

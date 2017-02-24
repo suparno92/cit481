@@ -12,7 +12,7 @@
    $clicked_id = $_POST['name'];
 
 
-   $addquery=$conn->prepare("INSERT INTO student_meetings (student_id,meeting_id) VALUES(?,?)");
+   $addquery=$conn->prepare("INSERT INTO student_meet (user_id,meeting_id) VALUES(?,?)");
    $addquery->bind_param('ii',$student_id,$clicked_id);
    $addquery->execute();
    $addquery->close();
