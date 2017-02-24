@@ -2,9 +2,9 @@
 <?php
     //Enter your database connection details here.
     $host = 'localhost'; //HOST NAME.
-    $db_name = 'test'; //Database Name
+    $db_name = ''; //Database Name
     $db_username = 'root'; //Database Username
-    $db_password = 'anupam'; //Database Password
+    $db_password = ''; //Database Password
 
     try
       {
